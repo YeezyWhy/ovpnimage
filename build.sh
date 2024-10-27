@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 echo "building docker image..."
-docker build -t YeezyWhy/ovpnimage .
+docker build -t yeezywhy/ovpnimage .
 echo "done!"
 
 echo "run image with defaults? (y/n):"
@@ -35,7 +35,7 @@ if [[$answer -eq "n" || $answer -eq "N"]]; then
     -e HOST_CONF_PORT=$conf_port \
     -e HOST_TUN_PORT=$tun_port \
     -e HOST_ADDR=$host_addr \
-    YeezyWhy/ovpnimage
+    yeezywhy/ovpnimage
 else
     echo "enter container name (default: dockovpn):"
     read container_name
@@ -50,5 +50,5 @@ else
     docker run -d --name $container_name --cap-add=NET_ADMIN \
     -p 1194:1194/udp -p 80:8080/tcp \
     -e HOST_ADDR=$host_addr \
-    YeezyWhy/ovpnimage
+    yeezywhy/ovpnimage
 fi
