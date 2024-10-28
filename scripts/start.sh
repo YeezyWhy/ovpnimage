@@ -53,6 +53,7 @@ fi
 # Replace variables in ovpn config file
 sed -i 's/%HOST_TUN_PROTOCOL%/'"$HOST_TUN_PROTOCOL"'/g' /etc/openvpn/server.conf
 sed -i 's/%HOST_TUN_MTU%/'"$HOST_TUN_MTU"'/g' /etc/openvpn/server.conf
+sed -i 's/%HOST_TUN_PORT%/'"$HOST_TUN_PORT"'/g' /etc/openvpn/server.conf
 
 # Allow ${HOST_TUN_PROTOCOL} traffic on port ${HOST_TUN_PORT}.
 iptables -A INPUT -i $ADAPTER -p ${HOST_TUN_PROTOCOL} -m state --state NEW,ESTABLISHED --dport ${HOST_TUN_PORT} -j ACCEPT
