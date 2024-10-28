@@ -38,5 +38,6 @@ EXPOSE 8080/tcp
 
 VOLUME [ "/opt/Dockovpn_data" ]
 
+RUN ["chmod", "+x", "./start.sh"]
 ENTRYPOINT [ "dumb-init", "./start.sh" ]
 CMD [ "" ]
