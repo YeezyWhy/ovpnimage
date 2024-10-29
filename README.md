@@ -9,7 +9,7 @@ docker build -t username/imagename .
 ### Running with custom settings
 
 ```bash
-docker run -d --name $container_name --cap-add=NET_ADMIN \
+docker run -d --name CONTAINER_NAME --cap-add=NET_ADMIN \
     -p 1194:1194/udp -p 80:8080/tcp \
     -e HOST_CONF_PORT=80 \
     -e HOST_TUN_PORT=1194 \
@@ -22,7 +22,7 @@ docker run -d --name $container_name --cap-add=NET_ADMIN \
 ### Running with defaults
 
 ```bash
-docker run -d --name $container_name --cap-add=NET_ADMIN \
+docker run -d --name CONTAINER_NAME --cap-add=NET_ADMIN \
     -p 1194:1194/udp -p 80:8080/tcp \
     -e HOST_ADDR=62.165.14.55 \
     username/imagename
